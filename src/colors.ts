@@ -1,18 +1,24 @@
 import { backgroundColors, effects, fontColors, Reset } from './model';
-function addColor(text: string, color: string, isBackground = false): string {
+
+type Color = keyof typeof backgroundColors | keyof typeof fontColors;
+
+function addColor(text: string, color: Color, isBackground = false): string {
     if (isBackground) {
         return text + backgroundColors[color];
     }
     return text + fontColors[color];
 }
-function getEffects(effectList: Array<string>): string {
+
+type Effect = keyof typeof effects;
+
+function getEffects(effectList: Array<Effect>): string {
     return effectList.map(effect => effects[effect]).join('');
 }
 
 export interface Theme {
-    font: string;
-    background?: string;
-    effects?: Array<string>;
+    font: Color;
+    background?: Color;
+    effects?: Array<Effect>;
 }
 export function color(text: string, options: Theme) {
     const preparedText = text.replace(/ё/g, 'е');
