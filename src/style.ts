@@ -1,7 +1,7 @@
 import { color, Theme } from './colors';
 import { markdown, TextStyle } from './md';
 
-export function style(text: string, options: Theme | TextStyle) {
+export function style(text: string, options: Theme | TextStyle): string {
     if (text.length === 0) {
         return text;
     }

@@ -20,7 +20,7 @@ export interface Theme {
     background?: Color;
     effects?: Array<Effect>;
 }
-export function color(text: string, options: Theme) {
+export function color(text: string, options: Theme): string {
     const preparedText = text.replace(/ё/g, 'е');
     let result = '';
     if (options) {

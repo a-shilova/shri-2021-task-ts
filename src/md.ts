@@ -5,7 +5,7 @@ export interface TextStyle {
     mono?: boolean;
     link?: string;
 }
-export function markdown(text: string, options: TextStyle) {
+export function markdown(text: string, options: TextStyle): string {
     let result = text;
     if (options) {
         if (options.bold) {
