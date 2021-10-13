@@ -1,14 +1,15 @@
 export const Reset: string = '\x1b[0m';
-export const effects: Record<string, string> = {
+export type Effect = 'bright' | 'dim' | 'italic' | 'underscore' | 'blink';
+export const effects: Record<Effect, string> = {
     'bright': '\x1b[1m',
     'dim': '\x1b[2m',
     'italic': '\x1b[3m',
     'underscore': '\x1b[4m',
     'blink': '\x1b[5m',
 };
-export type Effect = keyof typeof effects;
 
-export const fontColors: Record<string, string> = {
+export type Color = 'black' | 'red' | 'green' | 'yellow' | 'blue' | 'magenta' | 'cyan' | 'white';
+export const fontColors: Record<Color, string> = {
     black  : '\x1b[30m',
     red  : '\x1b[31m',
     green  : '\x1b[32m',  
@@ -18,9 +19,8 @@ export const fontColors: Record<string, string> = {
     cyan  : '\x1b[36m',
     white  : '\x1b[37m',
 };
-export type FontColor = keyof typeof fontColors;
 
-export const backgroundColors: Record<string, string> = {
+export const backgroundColors: Record<Color, string> = {
     black: '\x1b[40m',
     red: '\x1b[41m',
     green: '\x1b[42m',
@@ -30,9 +30,7 @@ export const backgroundColors: Record<string, string> = {
     cyan: '\x1b[46m',
     white: '\x1b[47m',
 };
-export type BackgroundColor = keyof typeof backgroundColors;
-
-export const contrast: Record<string, 'white' | 'black'> = {
+export const contrast: Record<Color, 'white' | 'black'> = {
     black: 'white',
     red: 'black',
     green: 'black',
@@ -42,4 +40,3 @@ export const contrast: Record<string, 'white' | 'black'> = {
     cyan: 'black',
     white: 'black',
 };
-export type Contract = keyof typeof  contrast;

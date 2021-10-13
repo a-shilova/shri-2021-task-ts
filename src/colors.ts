@@ -1,6 +1,6 @@
-import { BackgroundColor, backgroundColors, Effect, effects, FontColor, fontColors, Reset } from './model';
+import { backgroundColors, Effect, effects, Color, fontColors, Reset } from './model';
 
-function addColor(text: string, color: BackgroundColor | FontColor, isBackground: boolean = false): string {
+function addColor(text: string, color: Color, isBackground: boolean = false): string {
     if (isBackground) {
         return text + backgroundColors[color];
     }
@@ -11,9 +11,9 @@ function getEffects(effectList: Array<Effect>): string {
     return effectList.map(effect => effects[effect]).join('');
 }
 
-export type Theme = {
-    font?: FontColor;
-    background?: BackgroundColor;
+export interface Theme {
+    font?: Color;
+    background?: Color;
     effects?: Array<Effect>;
 }
 export function color(text: string, options: Theme): string {
