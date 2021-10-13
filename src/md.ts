@@ -1,5 +1,5 @@
 import { color } from './colors';
-export interface TextStyle {
+export type TextStyle = {
     bold?: boolean;
     italic?: boolean;
     mono?: boolean;
